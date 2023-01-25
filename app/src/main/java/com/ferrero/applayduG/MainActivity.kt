@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedlink : SharedPreferences
     private lateinit var sharedDeep : SharedPreferences
     private lateinit var sharedNaming : SharedPreferences
+    private lateinit var sharedMainId : SharedPreferences
     private val sunViewModel: LunarViewModel by viewModel<LunarViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         sharedDeep= getSharedPreferences(AppClass.deep, MODE_PRIVATE)
         sharedNaming= getSharedPreferences(AppClass.c1s, MODE_PRIVATE)
         sharedlink= getSharedPreferences(AppClass.link, MODE_PRIVATE)
+        sharedMainId= getSharedPreferences(AppClass.mainId, MODE_PRIVATE)
         lifecycleScope.launch(Dispatchers.IO){
             ijjsidjisd()
         }
@@ -87,6 +89,7 @@ class MainActivity : AppCompatActivity() {
         vicvjijic.start()
         val psosdlsksd = vicvjijic.info.id
         Log.d("getAdvertisingId = ", psosdlsksd.toString())
+        sharedDeep.edit().putString(AppClass.mainId,psosdlsksd.toString()).apply()
     }
 
     val appsConv = object : AppsFlyerConversionListener {
@@ -129,12 +132,18 @@ class MainActivity : AppCompatActivity() {
                             intentNorm.putExtra("WebInt", "campaign")
                             startActivity(intentNorm)
                             finish()
-                        }else if(naming!!.contains("tdb2") ||geo.contains(countryCode) ){
+                        }else if(naming!!.contains("tdb2")){
                             wsowslxoc.shutdown()
                             intentNorm.putExtra("WebInt", "campaign")
                             startActivity(intentNorm)
                             finish()
-                        } else if(deeplink!!.contains("tdb2") && !naming!!.contains("tdb2") ){
+                        } else if(!naming!!.contains("tdb2") || geo.contains(countryCode)){
+                            wsowslxoc.shutdown()
+                            intentNorm.putExtra("WebInt", "deepLink")
+                            startActivity(intentNorm)
+                            finish()
+                        }
+                        else if(deeplink!!.contains("tdb2") && !naming!!.contains("tdb2") ){
                             wsowslxoc.shutdown()
                             intentNorm.putExtra("WebInt", "deepLink")
                             startActivity(intentNorm)

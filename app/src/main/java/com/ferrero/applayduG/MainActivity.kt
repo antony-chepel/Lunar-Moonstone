@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         vicvjijic.start()
         val psosdlsksd = vicvjijic.info.id
         Log.d("getAdvertisingId = ", psosdlsksd.toString())
-        sharedDeep.edit().putString(AppClass.mainId,psosdlsksd.toString()).apply()
+         sharedMainId.edit().putString(AppClass.mainId,psosdlsksd.toString()).apply()
     }
 
     val appsConv = object : AppsFlyerConversionListener {

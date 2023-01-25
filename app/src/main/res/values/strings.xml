@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Lunar Moonstone</string>
-    <string name="image_chooser">Pick Your Image</string>
     <string name="facebook_app_id">1245992839314052</string>
     <string name="fb_login_protocol_scheme">fb1245992839314052</string>
+    <string name="facebook_client_token">847aa55e9f3622b31e8c06b799406e9d</string>
+    <string name="file_chooser_title">Choose image</string>
+    <string name="cannot_open_file_chooser_txt">Can not open file chooser</string>
+    <string name="camera_permission_granted_txt">Permission granted</string>
+    <string name="camera_permission_denied_txt">Permission denied</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Meodicu</string>
 </resources>

@@ -154,7 +154,7 @@ class Web : AppCompatActivity() {
                     gytidf?.let { arrayOf(it) } ?: arrayOfNulls(0)
                 val gyufkkcvmmcxidf = Intent(Intent.ACTION_CHOOSER)
                 gyufkkcvmmcxidf.putExtra(Intent.EXTRA_INTENT, gyuidkc)
-                gyufkkcvmmcxidf.putExtra(Intent.EXTRA_TITLE, getString(R.string.image_chooser))
+                gyufkkcvmmcxidf.putExtra(Intent.EXTRA_TITLE, getString(R.string.file_chooser_title))
                 gyufkkcvmmcxidf.putExtra(Intent.EXTRA_INITIAL_INTENTS, qpolsdmmxc)
                 startActivityForResult(
                     gyufkkcvmmcxidf, adsoixc
@@ -330,6 +330,7 @@ class Web : AppCompatActivity() {
                     "$linkAB$subOne$cpOne&$one$afId&$thrhtrhtrhtrht$mainId&$fofofofofofofofofo$pack&$fififififififififif$kiokjjlikjhmkij&$sisisisifsisis$lololololololo"
                 friodoosdf(afId.toString())
                 Log.d("TESTAG", "urururururururur apps: $aft")
+                Toast.makeText(this, "$cpOne", Toast.LENGTH_SHORT).show()
             }
         }
         return sharPre.getString("SAVED_URL", aft).toString()

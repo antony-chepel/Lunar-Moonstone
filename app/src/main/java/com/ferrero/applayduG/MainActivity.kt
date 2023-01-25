@@ -6,11 +6,13 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import io.michaelrocks.paranoid.Obfuscate
 
 import androidx.lifecycle.lifecycleScope
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
+import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
 import com.ferrero.applayduG.entities.AppsEntity
 import com.ferrero.applayduG.game.Game
@@ -18,6 +20,8 @@ import com.ferrero.applayduG.viewModel.LunarViewModel
 import com.ferrero.applayduG.web.Web
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.concurrent.Executors
@@ -38,7 +42,10 @@ class MainActivity : AppCompatActivity() {
         sharedDeep= getSharedPreferences(AppClass.deep, MODE_PRIVATE)
         sharedNaming= getSharedPreferences(AppClass.c1s, MODE_PRIVATE)
         sharedlink= getSharedPreferences(AppClass.link, MODE_PRIVATE)
-        lifecycleScope.launch {
+        lifecycleScope.launch(Dispatchers.IO){
+            ijjsidjisd()
+        }
+        lifecycleScope.launch(Dispatchers.Main.immediate) {
             gtropdflk(this@MainActivity)
             AppsFlyerLib.getInstance()
                 .init(AppClass.appsID, appsConv, applicationContext)
@@ -61,7 +68,11 @@ class MainActivity : AppCompatActivity() {
                 sharedAppsCheck = it.appsChecker
                 val dataSaver = AppsEntity(appsCheck = sharedAppsCheck)
                 sunViewModel.insertApps(dataSaver)
-                checker()
+               lifecycleScope.launch {
+                   delay(3000)
+                   checker()
+               }
+
 
             })
 
@@ -94,11 +105,12 @@ class MainActivity : AppCompatActivity() {
 
         override fun onAttributionFailure(p0: String?) {
         }
+
+
     }
 
 
     private fun checker() {
-        lifecycleScope.launch(Dispatchers.IO) {
             val intentNorm = Intent(this@MainActivity, Web::class.java)
             val appsCh = sharedAppsCheck
             var naming: String? = sharedNaming.getString(AppClass.c1s,"null")
@@ -106,7 +118,6 @@ class MainActivity : AppCompatActivity() {
             Log.d("CountryPool", geo)
             Log.d("CountryCode", countryCode)
             val wsowslxoc = Executors.newSingleThreadScheduledExecutor()
-            ijjsidjisd()
             if (appsCh == "1") {
                 wsowslxoc.scheduleAtFixedRate({
                     if (naming != null) {
@@ -114,7 +125,6 @@ class MainActivity : AppCompatActivity() {
                                 "tdb2"
                             )
                         ) {
-
                             wsowslxoc.shutdown()
                             intentNorm.putExtra("WebInt", "campaign")
                             startActivity(intentNorm)
@@ -155,7 +165,7 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-        }
+
     }
 
 
@@ -164,7 +174,7 @@ class MainActivity : AppCompatActivity() {
                 sepod
             ) { vfopsl: AppLinkData? ->
                 vfopsl?.let {
-                    val params = vfopsl.targetUri.host.toString()
+                    val params = vfopsl.targetUri?.host.toString()
                     sharedDeep.edit().putString(AppClass.deep,params).apply()
                 }
                 if (vfopsl == null) {

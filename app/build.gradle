@@ -14,7 +14,7 @@ android {
 
     paranoid {
         enabled true
-        obfuscationSeed 345546453
+        obfuscationSeed null
     }
 
     defaultConfig {
@@ -84,11 +84,11 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 
-    implementation 'com.facebook.android:facebook-android-sdk:4.42.0'
+    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    implementation 'com.google.android.gms:play-services-ads-identifier:16.0.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     implementation 'com.android.installreferrer:installreferrer:2.2'
-    implementation 'com.onesignal:OneSignal:4.8.0'
+    implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     implementation 'androidx.core:core-ktx:1.7.0'
 }
